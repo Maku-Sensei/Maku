@@ -8,9 +8,17 @@ body{
 }
 
 *{
-    font-family:  sans-serif;
+    font-family: sans-serif;
     box-sizing: border-box;
    
+}
+.error{
+    background: #F2DEDE;
+    color: #A94442;
+    padding: 10px;
+    width: 95%;
+    border-radius: 5px;
+    margin: 20px auto;
 }
 
 form{
@@ -52,14 +60,6 @@ button{
     border: none;
 }
 
-.error{
-    background: #F2DEDE;
-    color: #A94442;
-    padding: 10px;
-    width: 95%;
-    border-radius: 5px;
-    margin: 20px auto;
-}
 
 h1{
     text-align: center;
@@ -68,7 +68,7 @@ h1{
 }
 
 a{
-   float: right;
+    float: right;
     background: #555;
     padding: 10px 15px;
     color: #fff;
@@ -76,5 +76,8 @@ a{
     margin-right: 10px;
     border: none; 
     text-decoration: none; 
+}
+.button{
+    display: inline-block;
 }
 

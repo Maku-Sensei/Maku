@@ -13,7 +13,8 @@ if(isset($_SESSION['idUser']) && isset($_SESSION['Username'])){
         </HEAD>
     <body>
         <h1>Hello, <?php echo $_SESSION['Username']; ?> </h1> 
-        <a href="logout.php"> Logout </a>
+        <a href="logout.php" class="button"> Logout </a>
+        <a href="Portfolio.php" class="button"> Portfolio </a>
     </BODY>
     </HTML>
 <?php 

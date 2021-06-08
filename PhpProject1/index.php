@@ -1,9 +1,11 @@
 <!DOCTYPE html>
     <HTML>
-        <HEAD>
+        
+         <HEAD>
             <title>LOGIN</title>
             <link rel="stylesheet" type="text/css" href="stlye.css">
         </HEAD>
+        
     <body>
         <form action="login.php" method="post">
             <h2>LOGIN</h2>
@@ -16,9 +18,10 @@
             <LABEL> Password </LABEL>
             <input type="password" name="password" placeholder="Password"> <BR>
             
-            <BUTTON type="submit"> Login </BUTTON>
-            <BUTTON type="submit"> Register </BUTTON>
+            <button type="submit" name="login"> Login </button>
+            <button type="submit" name="register"> Register </button>
             
-        </form> 
-    </BODY>
+        </form>
+        
+    </BODY> 
     </HTML>

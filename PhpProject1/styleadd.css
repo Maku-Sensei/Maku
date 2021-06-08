@@ -1,0 +1,22 @@
+label{
+    color: #000000;
+    font-size: 18px;
+    padding: 10px;
+     
+}
+body{
+    background: #1690A7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    flex-direction: column;
+}
+*{
+    font-family: sans-serif;
+    box-sizing: border-box;
+   
+}  
+button{
+    width: 375px;
+}
