@@ -19,6 +19,9 @@
        <br>
        <br>
        <button type="submit" name="add"> Add </button>
+       
+       
       </form>
+      <button onclick="location.href='portfolio.php'"> Back </button>
   </body>
   </HTML>

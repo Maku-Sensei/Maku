@@ -9,6 +9,7 @@ include "DB_conn.php";
 if(isset($_POST['login'])){
 if (isset($_POST['uname'])&& isset($_POST['password'])){
     
+    $uname;
     $uname = validiere($_POST['uname']);
     $pass = validiere($_POST['password']);
     
