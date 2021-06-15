@@ -8,9 +8,9 @@ $uid = $_SESSION['idUser'];
 $sql = "SELECT PrivateKey, PublicKey FROM Wallet WHERE idUser = '$uid'";
 $result3 = mysqli_query($conn, $sql);
 if((mysqli_num_rows($result3) === 1)){
-    
-    $query = "SELECT * FROM Wallet WHERE idUser = '$uid'";
-    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result3);
+    $key = $row['PublicKey'];
+    $_SESSION['PublicKey'] = $key;
     $sql = "SELECT Kürzel FROM Wallet WHERE idUser = '$uid'";
     $result4 = mysqli_query($conn, $sql);
     if(mysqli_num_rows($result4) === 1){
@@ -33,6 +33,8 @@ if((mysqli_num_rows($result3) === 1)){
                             $sql = "UPDATE Wallet SET Value = '$value' WHERE idUser ='$uid' AND Kürzel = '$asset'";
                             $conn->query($sql);
                          }
+$query = "SELECT * FROM Wallet WHERE idUser = '$uid'";
+$result = mysqli_query($conn, $query);
 }else if ((mysqli_num_rows($result3) === 0)) {
     
     //generate Private Key and Public Key
@@ -51,6 +53,8 @@ if((mysqli_num_rows($result3) === 1)){
 <h2>Portfolio</h2>
 <button onclick="location.href= 'add.php'">Add</button>
 <button onclick="location.href='search.php'"> Search User </button>
+<button onclick="location.href='transactionlog.php'" name="tlog"> Transacion log </button>
+
 
 <table style="width:100%">
   <tr>

@@ -13,6 +13,14 @@ if(isset($_POST['add'])){
          $uname = $_SESSION['Username'];
          $uid = $_SESSION['idUser'];
          
+         $sql = "SELECT idBlockchain, Blockchain FROM Blockchain WHERE Kürzel = $asset";
+         $bresult = mysqli_query($conn, $sql);
+         if(mysqli_num_rows($bresult) === 1){
+             $brow = mysqli_fetch_assoc($result);
+             $blockid = $brow['idBlockchain'];
+             $blockchain = $brow['Blockchain'];
+             $_SESSION['idBlockchain'] = $blockid;
+         }
          
          
         if (!$query)
@@ -28,9 +36,15 @@ if(isset($_POST['add'])){
              if(mysqli_num_rows($result) === 1){
                  $row = mysqli_fetch_assoc($result);
                  $sqlanzahl = $row['Anzahl'];
-                 (double) $sqlanzahl;
-                 (double) $anzahl;
-                 $anzahl = $anzahl + $sqlanzahl ;
+                 try {
+                     (double) $sqlanzahl;
+                     (double) $anzahl;
+                     $anzahl = $anzahl + $sqlanzahl ;
+                 } catch (InvalidArgumentException $ex) {
+                     header("Location: Index.php?error=Keine Anzahl angegeben");
+                 }
+                
+                 
                  $sql = "UPDATE Wallet SET Anzahl = '$anzahl' WHERE idUser ='$uid' AND Kürzel = '$asset'";
                  if ($conn->query($sql) === TRUE) {
                      $sql = "SELECT Value AND Preis FROM Wallet WHERE idUser = '$uid' AND Kürzel = '$asset'";
@@ -45,6 +59,9 @@ if(isset($_POST['add'])){
                         (double) $value;
                         $value = $price * $anzahl;
                         $sql = "UPDATE Wallet SET Value = '$value' WHERE idUser ='$uid' AND Kürzel = '$asset'";
+                        $conn->query($sql);
+                        $key = $_SESSION['PublicKey'];
+                        $sql = "INSERT INTO Transaktionen VALUES(NULL, '$key', '$bid', '$blockchain', '$uid')";
                         $conn->query($sql);
                      }
                     header("Location: portfolio.php");

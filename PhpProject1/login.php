@@ -71,7 +71,7 @@ if(isset($_POST['register'])){
         exit();
     }else{
         $sql = "INSERT INTO User(iduser, Username, Passwort, Wallet_PrivateKey, Wallet_PublicKey)
-                VALUES(NULL,'$uname', '$pass', NULL, NULL)";
+                VALUES(NULL,'$uname', '$pass')";
     }
    
     if ($conn->query($sql) === TRUE) {
