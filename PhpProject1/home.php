@@ -15,6 +15,7 @@ if(isset($_SESSION['idUser']) && isset($_SESSION['Username'])){
         <h1>Hello, <?php echo $_SESSION['Username']; ?> </h1> 
         <a href="logout.php" class="button"> Logout </a>
         <a href="Portfolio.php" class="button"> Portfolio </a>
+        <a href="transactionlog.php" class="button" name="alltlog"> view Transactions </a>
     </BODY>
     </HTML>
 <?php 

@@ -61,7 +61,7 @@ if(isset($_POST['add'])){
                         $sql = "UPDATE Wallet SET Value = '$value' WHERE idUser ='$uid' AND Kürzel = '$asset'";
                         $conn->query($sql);
                         $key = $_SESSION['PublicKey'];
-                        $sql = "INSERT INTO Transaktionen VALUES(NULL, '$key', '$bid', '$blockchain', '$uid')";
+                        $sql = "INSERT INTO Transaktionen VALUES('$uid', '$key', '$bid', '$blockchain', '$uid', '$anzahl')";
                         $conn->query($sql);
                      }
                     header("Location: portfolio.php");
